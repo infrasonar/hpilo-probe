@@ -22,4 +22,3 @@ Variable            | Default                        | Description
 ```
 docker build -t hpilo-probe . --no-cache
 ```
-# hpilo-probe
