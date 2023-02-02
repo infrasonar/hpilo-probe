@@ -4,7 +4,7 @@ from asyncsnmplib.mib.mib_index import MIB_INDEX
 from asyncsnmplib.mib.syntax_funs import SYNTAX_FUNS
 
 
-def on_eventlogtime(value: int):
+def on_eventlogtime(value: bytes):
     '''
     cpqHeEventLogUpdateTime OBJECT-TYPE
     SYNTAX  OCTET STRING (SIZE (6))
@@ -30,7 +30,29 @@ def on_eventlogtime(value: int):
     return ts
 
 
+def on_phydrvids(value: bytes):
+    '''
+    cpqDaLogDrvPhyDrvIDs OBJECT-TYPE
+        SYNTAX  OCTET STRING (SIZE (0..255))
+        ACCESS  read-only
+        STATUS  deprecated
+        DESCRIPTION
+            "Drive Array Logical Drive Physical Drive IDs.
+
+            This lists the physical drive IDs which are associated with this
+            logical drive. These are the same IDs which can be used as
+            indices into the physical drive table. Each byte of the string
+            is an index. For array controllers that support a larger number
+            of drives, the Drive Array Logical Drive Extended Physical
+            Drive Attachment Table should be used to determine drive
+            associations."
+        ::= { cpqDaLogDrvEntry 10 }
+    '''
+    return list(map(int, value))
+
+
 SYNTAX_FUNS['hp_eventlogtime'] = on_eventlogtime
+SYNTAX_FUNS['hp_phydrvids'] = on_phydrvids
 
 # patch the syntax function because we need the raw bytes for these metrics
 MIB_INDEX[MIB_INDEX['CPQHLTH-MIB']['cpqHeEventLogInitialTime']]['syntax'] = {
@@ -38,4 +60,7 @@ MIB_INDEX[MIB_INDEX['CPQHLTH-MIB']['cpqHeEventLogInitialTime']]['syntax'] = {
 }
 MIB_INDEX[MIB_INDEX['CPQHLTH-MIB']['cpqHeEventLogUpdateTime']]['syntax'] = {
     'tp': 'CUSTOM', 'func': 'hp_eventlogtime',
+}
+MIB_INDEX[MIB_INDEX['CPQIDA-MIB']['cpqDaLogDrvPhyDrvIDs']]['syntax'] = {
+    'tp': 'CUSTOM', 'func': 'hp_phydrvids',
 }

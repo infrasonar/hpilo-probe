@@ -13,4 +13,6 @@ async def check_eventlog(
         check_config: dict):
 
     state = await get_data(asset, asset_config, check_config, QUERIES)
+    for item in state.get('cpqHeEventLogEntry', []):
+        item.pop('cpqHeEventLogFreeFormData', None)
     return state

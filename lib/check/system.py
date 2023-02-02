@@ -3,7 +3,6 @@ from libprobe.asset import Asset
 from ..utils import get_data
 
 QUERIES = (
-    MIB_INDEX['CPQHLTH-MIB']['cpqHeEventLogEntry'],
     MIB_INDEX['CPQHLTH-MIB']['cpqHeFltTolFanEntry'],
     MIB_INDEX['CPQHLTH-MIB']['cpqHeFltTolPowerSupplyEntry'],
     MIB_INDEX['CPQHLTH-MIB']['cpqHeResMem2ModuleEntry'],
