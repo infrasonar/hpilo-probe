@@ -21,6 +21,7 @@ def on_powersupplyentry(item: dict):
         item['cpqHeFltTolPowerSupplyCapacityUsedPercent'] = 100 * used / total
     except Exception:
         pass
+    item.pop('cpqHeFltTolPowerSupplyAutoRev', None)
 
 
 def on_hofilesysentry(item: dict):
@@ -47,4 +48,15 @@ async def check_system(
         on_powersupplyentry(item)
     for item in state.get('cpqHoFileSysEntry', []):
         on_hofilesysentry(item)
+    for item in state.get('cpqHeResMem2ModuleEntry', []):
+        item.pop('cpqHeResMem2ModuleDate', None)
+        item.pop('cpqHeResMem2ModuleSerialNo', None)
+        item.pop('cpqHeResMem2ModuleSerialNoMfgr', None)
+        item.pop('cpqHeResMem2ModuleSpd', None)
+    for item in state.get('cpqHeResMem2ModuleEntry', []):
+        item.pop('cpqSeCPUPartNumberMfgr', None)
+        item.pop('cpqSeCPUSerialNumber', None)
+        item.pop('cpqSeCPUSerialNumberMfgr', None)
+        item.pop('cpqSeCpuArchitectureRevision', None)
+        item.pop('cpqSeCpuHwLocation', None)
     return state
