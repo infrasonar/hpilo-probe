@@ -53,7 +53,7 @@ async def check_system(
         item.pop('cpqHeResMem2ModuleSerialNo', None)
         item.pop('cpqHeResMem2ModuleSerialNoMfgr', None)
         item.pop('cpqHeResMem2ModuleSpd', None)
-    for item in state.get('cpqHeResMem2ModuleEntry', []):
+    for item in state.get('cpqSeCpuEntry', []):
         item.pop('cpqSeCPUPartNumberMfgr', None)
         item.pop('cpqSeCPUSerialNumber', None)
         item.pop('cpqSeCPUSerialNumberMfgr', None)
