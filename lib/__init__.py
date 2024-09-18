@@ -64,3 +64,5 @@ MIB_INDEX[MIB_INDEX['CPQHLTH-MIB']['cpqHeEventLogUpdateTime']]['syntax'] = {
 MIB_INDEX[MIB_INDEX['CPQIDA-MIB']['cpqDaLogDrvPhyDrvIDs']]['syntax'] = {
     'tp': 'CUSTOM', 'func': 'hp_phydrvids',
 }
+
+DOCS_URL = 'https://docs.infrasonar.com/collectors/probes/snmp/hpilo/'
