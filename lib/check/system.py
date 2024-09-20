@@ -19,8 +19,9 @@ def on_powersupplyentry(item: dict):
     total = item.get('cpqHeFltTolPowerSupplyCapacityMaximum')
     used = item.get('cpqHeFltTolPowerSupplyCapacityUsed')
     try:
-        item['cpqHeFltTolPowerSupplyCapacityUsedPercent'] = \
-            100 * used / total  # type: ignore
+        assert isinstance(total, int)
+        assert isinstance(used, int)
+        item['cpqHeFltTolPowerSupplyCapacityUsedPercent'] = 100 * used / total
     except Exception:
         pass
     item.pop('cpqHeFltTolPowerSupplyAutoRev', None)
