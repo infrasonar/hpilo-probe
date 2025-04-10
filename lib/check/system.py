@@ -4,14 +4,14 @@ from ..snmpclient import get_snmp_client
 from ..snmpquery import snmpquery
 
 QUERIES = (
-    MIB_INDEX['CPQHLTH-MIB']['cpqHeFltTolFanEntry'],
-    MIB_INDEX['CPQHLTH-MIB']['cpqHeFltTolPowerSupplyEntry'],
-    MIB_INDEX['CPQHLTH-MIB']['cpqHeResMem2ModuleEntry'],
-    MIB_INDEX['CPQHLTH-MIB']['cpqHeResMemModuleEntry'],
-    MIB_INDEX['CPQHLTH-MIB']['cpqHeResilientMemory'],
-    MIB_INDEX['CPQHLTH-MIB']['cpqHeTemperatureEntry'],
-    MIB_INDEX['CPQHOST-MIB']['cpqHoFileSysEntry'],
-    MIB_INDEX['CPQSTDEQ-MIB']['cpqSeCpuEntry'],
+    (MIB_INDEX['CPQHLTH-MIB']['cpqHeFltTolFanEntry'], True),
+    (MIB_INDEX['CPQHLTH-MIB']['cpqHeFltTolPowerSupplyEntry'], True),
+    (MIB_INDEX['CPQHLTH-MIB']['cpqHeResMem2ModuleEntry'], True),
+    (MIB_INDEX['CPQHLTH-MIB']['cpqHeResMemModuleEntry'], True),
+    (MIB_INDEX['CPQHLTH-MIB']['cpqHeResilientMemory'], False),
+    (MIB_INDEX['CPQHLTH-MIB']['cpqHeTemperatureEntry'], True),
+    (MIB_INDEX['CPQHOST-MIB']['cpqHoFileSysEntry'], True),
+    (MIB_INDEX['CPQSTDEQ-MIB']['cpqSeCpuEntry'], True),
 )
 
 

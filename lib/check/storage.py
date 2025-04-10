@@ -4,8 +4,8 @@ from ..snmpclient import get_snmp_client
 from ..snmpquery import snmpquery
 
 QUERIES = (
-    MIB_INDEX['CPQIDA-MIB']['cpqDaLogDrvEntry'],
-    MIB_INDEX['CPQIDA-MIB']['cpqDaPhyDrvEntry'],
+    (MIB_INDEX['CPQIDA-MIB']['cpqDaLogDrvEntry'], True),
+    (MIB_INDEX['CPQIDA-MIB']['cpqDaPhyDrvEntry'], True),
 )
 
 
