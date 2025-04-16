@@ -38,6 +38,12 @@ def on_hofilesysentry(item: dict):
     percentused = item.pop('cpqHoFileSysPercentSpaceUsed', -1)
     if percentused >= 0:
         item['cpqHoFileSysPercentSpaceUsed'] = percentused
+    allocunitstotal = item.pop('cpqHoFileSysAllocUnitsTotal', -1)
+    if allocunitstotal >= 0:
+        item['cpqHoFileSysAllocUnitsTotal'] = allocunitstotal
+    allocunitsused = item.pop('cpqHoFileSysAllocUnitsUsed', -1)
+    if allocunitsused >= 0:
+        item['cpqHoFileSysAllocUnitsUsed'] = allocunitsused
     return item
 
 
