@@ -14,6 +14,12 @@ async def check_storage(
         asset: Asset,
         asset_config: dict,
         check_config: dict):
+    # cpqDaPhyDrvSSDEstTimeRemainingHours might be -1 in some cases, this value
+    #   is provided as seconds on some devices, and minutes on other.
+    #   Be careful with using this metric as the unit is not honored by many
+    #   devices.
+    # cpqDaPhyDrvPowerOnHours might be represented in minutes on some hardware
+    #   while others return the value in hours.
 
     snmp = get_snmp_client(asset, asset_config, check_config)
     state = await snmpquery(snmp, QUERIES)
