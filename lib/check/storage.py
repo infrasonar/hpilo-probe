@@ -25,31 +25,31 @@ async def check_storage(
     state = await snmpquery(snmp, QUERIES)
 
     for item in state.get('cpqDaPhyDrvEntry', []):
-        if item.get('cpqDaLogDrvPercentRebuild') == MAX_INT:
+        if item.get('cpqDaLogDrvPercentRebuild') in (MAX_INT, -1):
             item.pop('cpqDaLogDrvPercentRebuild')
-        if item.get('cpqDaLogDrvBlinkTime') == MAX_INT:
+        if item.get('cpqDaLogDrvBlinkTime') in (MAX_INT, -1):
             item.pop('cpqDaLogDrvBlinkTime')
-        if item.get('cpqDaLogDrvRPIPercentComplete') == MAX_INT:
+        if item.get('cpqDaLogDrvRPIPercentComplete') in (MAX_INT, -1):
             item.pop('cpqDaLogDrvRPIPercentComplete')
 
     for item in state.get('cpqDaPhyDrvEntry', []):
-        if item.get('cpqDaPhyDrvFunctTest1') == MAX_INT:
+        if item.get('cpqDaPhyDrvFunctTest1') in (MAX_INT, -1):
             item.pop('cpqDaPhyDrvFunctTest1')
-        if item.get('cpqDaPhyDrvFunctTest2') == MAX_INT:
+        if item.get('cpqDaPhyDrvFunctTest2') in (MAX_INT, -1):
             item.pop('cpqDaPhyDrvFunctTest2')
-        if item.get('cpqDaPhyDrvFunctTest3') == MAX_INT:
+        if item.get('cpqDaPhyDrvFunctTest3') in (MAX_INT, -1):
             item.pop('cpqDaPhyDrvFunctTest3')
-        if item.get('cpqDaPhyDrvDrqTimeouts') == MAX_INT:
+        if item.get('cpqDaPhyDrvDrqTimeouts') in (MAX_INT, -1):
             item.pop('cpqDaPhyDrvDrqTimeouts')
-        if item.get('cpqDaPhyDrvPostErrs') == MAX_INT:
+        if item.get('cpqDaPhyDrvPostErrs') in (MAX_INT, -1):
             item.pop('cpqDaPhyDrvPostErrs')
-        if item.get('cpqDaPhyDrvBlinkTime') == MAX_INT:
+        if item.get('cpqDaPhyDrvBlinkTime') in (MAX_INT, -1):
             item.pop('cpqDaPhyDrvBlinkTime')
-        if item.get('cpqDaPhyDrvPowerOnHours') == MAX_INT:
+        if item.get('cpqDaPhyDrvPowerOnHours') in (MAX_INT, -1):
             item.pop('cpqDaPhyDrvPowerOnHours')
-        if item.get('cpqDaPhyDrvSSDPercntEndrnceUsed') == MAX_INT:
+        if item.get('cpqDaPhyDrvSSDPercntEndrnceUsed') in (MAX_INT, -1):
             item.pop('cpqDaPhyDrvSSDPercntEndrnceUsed')
-        if item.get('cpqDaPhyDrvSSDEstTimeRemainingHours') == MAX_INT:
+        if item.get('cpqDaPhyDrvSSDEstTimeRemainingHours') in (MAX_INT, -1):
             item.pop('cpqDaPhyDrvSSDEstTimeRemainingHours')
         if item.get('cpqDaPhyDrvBusNumber') == -1:
             item.pop('cpqDaPhyDrvBusNumber')

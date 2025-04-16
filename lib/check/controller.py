@@ -18,7 +18,7 @@ async def check_controller(
     state = await snmpquery(snmp, QUERIES)
 
     for item in state.get('cpqDaCntlrEntry', []):
-        if item.get('cpqDaCntlrBlinkTime') == MAX_INT:
+        if item.get('cpqDaCntlrBlinkTime') in (MAX_INT, -1):
             item.pop('cpqDaCntlrBlinkTime')
         if item.get('cpqDaCntlrPartnerSlot') == -1:
             item.pop('cpqDaCntlrPartnerSlot')
