@@ -17,4 +17,9 @@ async def check_eventlog(
     state = await snmpquery(snmp, QUERIES)
     for item in state.get('cpqHeEventLogEntry', []):
         item.pop('cpqHeEventLogFreeFormData', None)
+        if item.get('cpqDaLogDrvRebuildingPhyDrv') == -1:
+            item['cpqDaLogDrvRebuildingPhyDrv'] = None
+        if item.get('cpqDaLogDrvCacheVolIndex') == -1:
+            item['cpqDaLogDrvCacheVolIndex'] = None
+
     return state

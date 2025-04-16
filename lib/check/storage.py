@@ -45,4 +45,16 @@ async def check_storage(
             item['cpqDaPhyDrvSSDPercntEndrnceUsed'] = None
         if item.get('cpqDaPhyDrvSSDEstTimeRemainingHours') == MAX_INT:
             item['cpqDaPhyDrvSSDEstTimeRemainingHours'] = None
+        if item.get('cpqDaPhyDrvBusNumber') == -1:
+            item['cpqDaPhyDrvBusNumber'] = None
+        if item.get('cpqDaPhyDrvBoxOnConnector') == -1:
+            item['cpqDaPhyDrvBoxOnConnector'] = None
+        if item.get('cpqDaPhyDrvPhyCount') == -1:
+            item['cpqDaPhyDrvPhyCount'] = None
+        if item.get('cpqDaPhyDrvCurrentTemperature') == -1:
+            item['cpqDaPhyDrvCurrentTemperature'] = None
+        if item.get('cpqDaPhyDrvTemperatureThreshold') == -1:
+            item['cpqDaPhyDrvTemperatureThreshold'] = None
+        if item.get('cpqDaPhyDrvMaximumTemperature') == -1:
+            item['cpqDaPhyDrvMaximumTemperature'] = None
     return state

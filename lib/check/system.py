@@ -38,6 +38,12 @@ def on_hofilesysentry(item: dict):
     percentused = item.pop('cpqHoFileSysPercentSpaceUsed', -1)
     if percentused >= 0:
         item['cpqHoFileSysPercentSpaceUsed'] = percentused
+    allocunitstotal = item.pop('cpqHoFileSysAllocUnitsTotal', -1)
+    if allocunitstotal >= 0:
+        item['cpqHoFileSysAllocUnitsTotal'] = allocunitstotal
+    allocunitsused = item.pop('cpqHoFileSysAllocUnitsUsed', -1)
+    if allocunitsused >= 0:
+        item['cpqHoFileSysAllocUnitsUsed'] = allocunitsused
     return item
 
 
@@ -64,4 +70,10 @@ async def check_system(
         item.pop('cpqSeCPUSerialNumberMfgr', None)
         item.pop('cpqSeCpuArchitectureRevision', None)
         item.pop('cpqSeCpuHwLocation', None)
+        if item.get('cpqSeCpuCurrentPerformanceState') == -1:
+            item['cpqSeCpuCurrentPerformanceState'] = None
+        if item.get('cpqSeCpuMinPerformanceState') == -1:
+            item['cpqSeCpuMinPerformanceState'] = None
+        if item.get('cpqSeCpuMaxPerformanceState') == -1:
+            item['cpqSeCpuMaxPerformanceState'] = None
     return state
