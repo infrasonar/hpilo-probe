@@ -18,8 +18,8 @@ async def check_eventlog(
     for item in state.get('cpqHeEventLogEntry', []):
         item.pop('cpqHeEventLogFreeFormData', None)
         if item.get('cpqDaLogDrvRebuildingPhyDrv') == -1:
-            item['cpqDaLogDrvRebuildingPhyDrv'] = None
+            item.pop('cpqDaLogDrvRebuildingPhyDrv')
         if item.get('cpqDaLogDrvCacheVolIndex') == -1:
-            item['cpqDaLogDrvCacheVolIndex'] = None
+            item.pop('cpqDaLogDrvCacheVolIndex')
 
     return state

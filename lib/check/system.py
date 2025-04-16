@@ -70,10 +70,4 @@ async def check_system(
         item.pop('cpqSeCPUSerialNumberMfgr', None)
         item.pop('cpqSeCpuArchitectureRevision', None)
         item.pop('cpqSeCpuHwLocation', None)
-        if item.get('cpqSeCpuCurrentPerformanceState') == -1:
-            item['cpqSeCpuCurrentPerformanceState'] = None
-        if item.get('cpqSeCpuMinPerformanceState') == -1:
-            item['cpqSeCpuMinPerformanceState'] = None
-        if item.get('cpqSeCpuMaxPerformanceState') == -1:
-            item['cpqSeCpuMaxPerformanceState'] = None
     return state

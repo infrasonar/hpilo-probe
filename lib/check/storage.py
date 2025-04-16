@@ -20,41 +20,41 @@ async def check_storage(
 
     for item in state.get('cpqDaPhyDrvEntry', []):
         if item.get('cpqDaLogDrvPercentRebuild') == MAX_INT:
-            item['cpqDaLogDrvPercentRebuild'] = None
+            item.pop('cpqDaLogDrvPercentRebuild')
         if item.get('cpqDaLogDrvBlinkTime') == MAX_INT:
-            item['cpqDaLogDrvBlinkTime'] = None
+            item.pop('cpqDaLogDrvBlinkTime')
         if item.get('cpqDaLogDrvRPIPercentComplete') == MAX_INT:
-            item['cpqDaLogDrvRPIPercentComplete'] = None
+            item.pop('cpqDaLogDrvRPIPercentComplete')
 
     for item in state.get('cpqDaPhyDrvEntry', []):
         if item.get('cpqDaPhyDrvFunctTest1') == MAX_INT:
-            item['cpqDaPhyDrvFunctTest1'] = None
+            item.pop('cpqDaPhyDrvFunctTest1')
         if item.get('cpqDaPhyDrvFunctTest2') == MAX_INT:
-            item['cpqDaPhyDrvFunctTest2'] = None
+            item.pop('cpqDaPhyDrvFunctTest2')
         if item.get('cpqDaPhyDrvFunctTest3') == MAX_INT:
-            item['cpqDaPhyDrvFunctTest3'] = None
+            item.pop('cpqDaPhyDrvFunctTest3')
         if item.get('cpqDaPhyDrvDrqTimeouts') == MAX_INT:
-            item['cpqDaPhyDrvDrqTimeouts'] = None
+            item.pop('cpqDaPhyDrvDrqTimeouts')
         if item.get('cpqDaPhyDrvPostErrs') == MAX_INT:
-            item['cpqDaPhyDrvPostErrs'] = None
+            item.pop('cpqDaPhyDrvPostErrs')
         if item.get('cpqDaPhyDrvBlinkTime') == MAX_INT:
-            item['cpqDaPhyDrvBlinkTime'] = None
+            item.pop('cpqDaPhyDrvBlinkTime')
         if item.get('cpqDaPhyDrvPowerOnHours') == MAX_INT:
-            item['cpqDaPhyDrvPowerOnHours'] = None
+            item.pop('cpqDaPhyDrvPowerOnHours')
         if item.get('cpqDaPhyDrvSSDPercntEndrnceUsed') == MAX_INT:
-            item['cpqDaPhyDrvSSDPercntEndrnceUsed'] = None
+            item.pop('cpqDaPhyDrvSSDPercntEndrnceUsed')
         if item.get('cpqDaPhyDrvSSDEstTimeRemainingHours') == MAX_INT:
-            item['cpqDaPhyDrvSSDEstTimeRemainingHours'] = None
+            item.pop('cpqDaPhyDrvSSDEstTimeRemainingHours')
         if item.get('cpqDaPhyDrvBusNumber') == -1:
-            item['cpqDaPhyDrvBusNumber'] = None
+            item.pop('cpqDaPhyDrvBusNumber')
         if item.get('cpqDaPhyDrvBoxOnConnector') == -1:
-            item['cpqDaPhyDrvBoxOnConnector'] = None
+            item.pop('cpqDaPhyDrvBoxOnConnector')
         if item.get('cpqDaPhyDrvPhyCount') == -1:
-            item['cpqDaPhyDrvPhyCount'] = None
+            item.pop('cpqDaPhyDrvPhyCount')
         if item.get('cpqDaPhyDrvCurrentTemperature') == -1:
-            item['cpqDaPhyDrvCurrentTemperature'] = None
+            item.pop('cpqDaPhyDrvCurrentTemperature')
         if item.get('cpqDaPhyDrvTemperatureThreshold') == -1:
-            item['cpqDaPhyDrvTemperatureThreshold'] = None
+            item.pop('cpqDaPhyDrvTemperatureThreshold')
         if item.get('cpqDaPhyDrvMaximumTemperature') == -1:
-            item['cpqDaPhyDrvMaximumTemperature'] = None
+            item.pop('cpqDaPhyDrvMaximumTemperature')
     return state

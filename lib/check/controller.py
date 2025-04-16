@@ -19,9 +19,9 @@ async def check_controller(
 
     for item in state.get('cpqDaCntlrEntry', []):
         if item.get('cpqDaCntlrBlinkTime') == MAX_INT:
-            item['cpqDaCntlrBlinkTime'] = None
+            item.pop('cpqDaCntlrBlinkTime')
         if item.get('cpqDaCntlrPartnerSlot') == -1:
-            item['cpqDaCntlrPartnerSlot'] = None
+            item.pop('cpqDaCntlrPartnerSlot')
         if item.get('cpqDaCntlrCurrentTemp') == -1:
-            item['cpqDaCntlrCurrentTemp'] = None
+            item.pop('cpqDaCntlrCurrentTemp')
     return state
