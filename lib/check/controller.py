@@ -12,6 +12,7 @@ QUERIES = (
 
 class CheckController(Check):
     key = 'controller'
+    unchanged_eol = 14400
 
     @staticmethod
     async def run(asset: Asset, local_config: dict, config: dict) -> dict:
