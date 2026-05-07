@@ -50,6 +50,7 @@ def on_hofilesysentry(item: dict):
 
 class CheckSystem(Check):
     key = 'system'
+    unchanged_eol = 0
 
     @staticmethod
     async def run(asset: Asset, local_config: dict, config: dict) -> dict:
